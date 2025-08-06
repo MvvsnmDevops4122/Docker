@@ -4,8 +4,9 @@
                                                    Docker Compose
 
 ======================================================================================================================                                         
+
 # Docker Compose
-=================
+
 
 👉 Docker Compose is a tool used to define and run multi-container Docker applications.
 
@@ -18,7 +19,10 @@
 - `compose.yaml`  
 - `compose.yml`  
 
+
+
 ## 🧪 Example: Spring Boot App with MongoDB (Without Compose)
+
 
 docker network create jio
 
@@ -35,27 +39,22 @@ springimage
 
 
 💡 **Interview Q:**
-====================
-
 **Q:** App or DB - which one do we bring down first?
 **A:** ✔️ App
 
 
 ## 📝 How to Write a Docker Compose File?
-===========================================
 
 Basic structure:
-----------------
 
 version:
 services:
 volumes:
 networks:
 
-## 🧾 Example Docker Compose File
-======================================
 
-```yaml
+## 🧾 Example Docker Compose File
+
 version: "3"
 services:
   spring-boot-app:
@@ -87,48 +86,41 @@ networks:
 
 volumes:
   jiovolume:
-```
-
----
 
 ## 💾 How to Save the File?
-===========================
 
 Save it as any of the following (most commonly `docker-compose.yaml`):
 
+
 docker-compose.yaml
 
+
 ## 🔍 How to Check Docker Compose Version?
-===========================================
 
 docker-compose version
 
 ## 🔧 How to Install Docker Compose?
-=====================================
 
 sudo apt install docker-compose -y
 
+
 ## ✅ How to Validate the Compose File?
-========================================
+
 
 docker-compose config
 
 ## 🚀 How to Start Services with Compose?
-==========================================
 
 docker-compose up -d
 
 ## ⛔ How to Stop/Remove All Services?
-======================================
 
 docker-compose down
 
 ## 📋 How to View Running Containers?
-=====================================
 
 docker-compose ps -a
 
 ## 📦 How to See Used Docker Images?
-=====================================
 
 docker-compose images
