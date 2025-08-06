@@ -4,28 +4,28 @@
                                                    Docker Compose
 
 ======================================================================================================================                                         
-# docker compose
------------------
+# Docker Compose
+=================
 
 👉 Docker Compose is a tool used to define and run multi-container Docker applications.
 
 👉 It is written in **YAML** (Yet Another Markup Language) format.
 
-👉 Default file names:  
------------------------
-  
-   ✔️ docker-compose.yaml  
+## ✅ Default Compose File Names:
 
-   ✔️ docker-compose.yml 
+- `docker-compose.yaml`  
+- `docker-compose.yml`  
+- `compose.yaml`  
+- `compose.yml`  
 
-   ✔️ compose.yaml  
+## 🧪 Example: Spring Boot App with MongoDB (Without Compose)
 
-   ✔️ compose.yml
+docker network create jio
 
-
-🧪 Example: Spring Boot App with MongoDB
-------------------------------------------
-
+docker run -d --name mongo -v jiovolume:/data/db --network jio \
+-e MONGO_INITDB_ROOT_USERNAME=devdb \
+-e MONGO_INITDB_ROOT_PASSWORD=dev@123 \
+mongo
 
 docker run -d --name springapp --network jio -p 8080:8080 \
 -e MONGO_DB_HOSTNAME=mongo \
@@ -33,29 +33,29 @@ docker run -d --name springapp --network jio -p 8080:8080 \
 -e MONGO_DB_PASSWORD=dev@123 \
 springimage
 
-docker run -d --name mongo -v jiovolume:/data/db --network jio \
--e MONGO_INITDB_ROOT_USERNAME=devdb \
--e MONGO_INITDB_ROOT_PASSWORD=dev@123 \
-mongo
+
+💡 **Interview Q:**
+====================
+
+**Q:** App or DB - which one do we bring down first?
+**A:** ✔️ App
 
 
-💡 **Interview Q:** App or DB - which one do we bring down first?
-✔️ **Ans:** App
+## 📝 How to Write a Docker Compose File?
+===========================================
 
-
-📝 How to write a Docker Compose file?
-=======================================
+Basic structure:
+----------------
 
 version:
 services:
 volumes:
 networks:
 
+## 🧾 Example Docker Compose File
+======================================
 
-
-🧾 Example Docker Compose File
-------------------------------
-
+```yaml
 version: "3"
 services:
   spring-boot-app:
@@ -79,7 +79,7 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=devdb
       - MONGO_INITDB_ROOT_PASSWORD=dev@123
     volumes:
-      - jiovolume:/data/db   # ✅ FIXED here
+      - jiovolume:/data/db   # ✅ Persistent data volume
 
 networks:
   jio:
@@ -87,57 +87,48 @@ networks:
 
 volumes:
   jiovolume:
+```
 
+---
 
+## 💾 How to Save the File?
+===========================
 
+Save it as any of the following (most commonly `docker-compose.yaml`):
 
+docker-compose.yaml
 
-💾 How to save the file?
--------------------------
-
-Save as: docker-compose.yaml
-
-
-🔍 How to check the version?
-----------------------------
+## 🔍 How to Check Docker Compose Version?
+===========================================
 
 docker-compose version
 
+## 🔧 How to Install Docker Compose?
+=====================================
 
-🔧 How to install Docker Compose?
---------------------------------
+sudo apt install docker-compose -y
 
-sudo apt install docker-compose
-
-
-✅ How to validate the syntax?
-------------------------------
+## ✅ How to Validate the Compose File?
+========================================
 
 docker-compose config
 
-
-🚀 How to run/up Docker Compose?
-------------------------------
+## 🚀 How to Start Services with Compose?
+==========================================
 
 docker-compose up -d
 
-
-⛔ How to stop/down?
----------------------
+## ⛔ How to Stop/Remove All Services?
+======================================
 
 docker-compose down
 
-
-📋 How to view running containers?
----------------------------------
+## 📋 How to View Running Containers?
+=====================================
 
 docker-compose ps -a
 
-
-📦 How to see the images?
--------------------------
+## 📦 How to See Used Docker Images?
+=====================================
 
 docker-compose images
-
-
-
